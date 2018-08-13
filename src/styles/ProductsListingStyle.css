@@ -1,0 +1,36 @@
+/*
+* @Author: jas
+* @Date:   2018-08-12 19:34:19
+* @Last Modified by:   jas
+* @Last Modified time: 2018-08-13 10:34:44
+*/
+.products-listing-container {
+	flex-grow: 65;
+	/*background-color: red;*/
+	/*padding: 15px;*/
+	margin: 10px;
+}
+
+.products-listing-container .ProductsListing-root-1 {
+	margin-top: 0px;
+	width: auto;
+}
+
+.products-listing__heading {
+	display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #d1d7db;
+}
+
+.select-product-type {
+	margin: 0!important;
+	margin-left: 15px !important;
+}
+
+.select-product-type .MuiSelect-selectMenu-37 {
+	font-size: 13px;
+}
+
+.select-product-type .MuiInput-input-48 {
+	display: inline;
+}

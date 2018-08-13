@@ -1,0 +1,27 @@
+/*
+* @Author: jas
+* @Date:   2018-08-12 19:01:26
+* @Last Modified by:   jas
+* @Last Modified time: 2018-08-12 19:30:52
+*/
+.header {
+	display: flex;
+	background-color: #F2784B;
+	justify-content: center;
+  align-items: center;
+	padding: 10px 0;
+}
+
+.header__wrapper {
+	flex-direction: column;
+	text-align: center;
+}
+
+.header__logo {
+	height: 40px;
+}
+
+.header__text {
+  font-size: 20px;
+  color: white;
+}

@@ -1,0 +1,41 @@
+/*
+* @Author: jas
+* @Date:   2018-08-12 19:34:27
+* @Last Modified by:   jas
+* @Last Modified time: 2018-08-13 09:22:53
+*/
+.order-summary-container {
+	flex-grow: 25;
+	/*background-color: #a1a1ff;*/
+	/*padding: 15px;*/
+	margin: 10px;
+}
+
+.order-summary__wrapper {
+	border: 1px solid #d1d7db;
+  border-radius: 10px;
+}
+
+.order-summary__heading {
+  padding: 15px;
+  border-bottom: 1px solid #d1d7db;
+}
+
+.order-summary__total {
+	padding: 15px;
+  border-top: 1px solid #d1d7db;	
+}
+
+.order-summary__products-wrapper {
+	padding: 15px;
+}
+
+.cart-products {
+	font-size: 14px;
+	margin-bottom: 15px;
+	justify-content: space-between;
+}
+
+.cart-products--label {
+	/*margin: 0 5px;*/
+}
