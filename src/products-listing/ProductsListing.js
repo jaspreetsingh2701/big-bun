@@ -1,8 +1,8 @@
 /*
 * @Author: jas
 * @Date:   2018-08-12 19:07:13
-* @Last Modified by:   jas
-* @Last Modified time: 2018-08-13 12:46:53
+* @Last Modified by:   JASPREET
+* @Last Modified time: 2018-08-13 15:29:20
 */
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
@@ -12,15 +12,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Icon from '@material-ui/core/Icon';
+import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Add from '@material-ui/icons/Add';
 import Remove from '@material-ui/icons/Remove';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 
 import './../styles/ProductsListingStyle.css';
 import OrderSummary from "./../order-summary/OrderSummary";
@@ -29,14 +27,14 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   table: {
     minWidth: 700,
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120,
+    minWidth: 120
   },
 });
 
@@ -68,10 +66,8 @@ class ProductsListing extends Component {
   }
 
   componentDidMount() {
-    // let temp[] = [{event: {target: this.state.selectedOption}}];
     this.fetchProductTypes();
     this.fetchProducts();
-    // this.fetchProductsByType(temp);
   }
 
   fetchProductTypes() {
@@ -179,7 +175,7 @@ class ProductsListing extends Component {
       el[0].quantity--;
       if(el[0].quantity <= 0) {
         var index;
-        var tempElm = cartProducts.filter(function(elm, idx) {
+        cartProducts.filter(function(elm, idx) {
           if(elm.item.id === id) {
             return (index = idx);
           }
@@ -205,6 +201,21 @@ class ProductsListing extends Component {
     return false;
   }
 
+  searchByName = (event) => {
+    let {products} = this.state;
+    let name = [event.target.value][0];
+    let result = [];
+    let _this = this;
+    return Object.keys(products).map(function(product, idx) {
+      return products[product].filter((item) => {
+          if(item.name.toLowerCase().indexOf(name) > -1) {
+          result.push(item);
+           _this.setState({renderedProducts: result});
+        }
+      })
+    });
+    
+  }
 
   render() {
   const {classes} = this.props; 
@@ -229,6 +240,13 @@ class ProductsListing extends Component {
           })}
           </Select>
         </FormControl>
+        <TextField
+          id="name"
+          className={classes.textField, 'textfield-search'}
+          value={this.state.name}
+          onChange={(event) => this.searchByName(event)}
+          margin="normal"
+        />
       </div>
         <Table className={classes.table}>
           <TableHead>
@@ -276,7 +294,7 @@ class ProductsListing extends Component {
   else {
     return (
     <div className="overlay loader">
-      <img className="loading-img" src="./assets/loading.gif" /> 
+      <img alt="loading" className="loading-img" src="./assets/loading.gif" /> 
     </div>)
   }
   }
